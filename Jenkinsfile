@@ -1,5 +1,5 @@
 def branch = "main"
-def repo = "https://github.com/angellaviory/simple-nodejs-api"
+def repo = "git@github.com:angellaviory/simple-nodejs-api.git"
 def cred = "ang"
 def dir = "~/simple-nodejs-api"
 def server = "103.37.125.125"
