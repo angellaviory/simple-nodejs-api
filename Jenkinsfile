@@ -2,7 +2,7 @@ def branch = "master"
 def repo = "git@github.com:angellaviory/simple-nodejs-api.git"
 def cred = "ang"
 def dir = "~/simple-nodejs-api"
-def server = "103.37.125.125"
+def server = "ang@103.37.125.125"
 def imagename = "simple"
 
 pipeline {
