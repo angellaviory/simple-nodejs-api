@@ -8,6 +8,26 @@ def imagename = "simple"
 
 pipeline {
 	agent any
+	stages {
+		stage ('Pull From Git'){
+		  steps{
+		    sshagent ([cred]) {
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+		    mkdir ${dir}
+                    cd ${dir}
+		    git init
+                    git remote add origin ${repo}
+		    git pull origin master
+		    git branch ${branch}
+		    git checkout ${branch}
+		    git pull origin ${branch}
+                    exit
+                    EOF
+                    """
+	            }
+          	}
+ 	 }
+
 	 stages {
                 stage ('Run Docker Image'){
                   steps{
