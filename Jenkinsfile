@@ -26,6 +26,20 @@ pipeline {
 	            }
                }
          }
+
+        stage('Image Build') {
+            steps {
+                sshagent([cred]) {
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    mkdir ${dir}
+                    cd ${dir}
+                    docker build -t ${imagename}:latest .
+                    exit
+                    EOF
+                    """
+                    }
+               }
+         }
 	
 
          stage('Docker Run') {
