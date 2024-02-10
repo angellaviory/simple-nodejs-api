@@ -1,4 +1,4 @@
-def branch = "main"
+def branch = "master"
 def repo = "git@github.com:angellaviory/simple-nodejs-api.git"
 def cred = "ang"
 def dir = "~/simple-nodejs-api"
