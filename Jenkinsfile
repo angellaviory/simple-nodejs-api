@@ -5,7 +5,6 @@ def dir = "~/simple-nodejs-api"
 def server = "103.37.125.125"
 def imagename = "simple"
 
-
 pipeline {
 	agent any
 	stages {
@@ -25,22 +24,23 @@ pipeline {
                     EOF
                     """
 	            }
-          	}
- 	 }
+               }
+         }
+	
 
-	 stages {
-                stage ('Run Docker Image'){
-                  steps{
-                    sshagent ([cred]) {
+         stage('Docker Run') {
+            steps {
+                sshagent([cred]) {
                     sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    mkdir ${dir}
                     cd ${dir}
-                    docker run -d -p 3000:3000 ${imagename}:latest 
+                    docker run -d -p 3300:3000 ${imagename}:latest
                     exit
                     EOF
                     """
                     }
                }
          }
-    
-     }
+
+    }
 }
