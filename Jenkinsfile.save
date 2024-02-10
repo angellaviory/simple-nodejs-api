@@ -1,0 +1,6 @@
+def branch = "main"
+def repo = "https://github.com/angellaviory/dumbmerchfe"
+def cred = "ubuntu"
+def dir = "~/dumbmerchfe"
+def server = "192.168.64.49"
+def imagename = "dumbmerchfe"
